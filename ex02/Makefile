@@ -6,17 +6,24 @@ COMMONFLAGS	=
 CXXFLAGS	= $(COMMONFLAGS) -Wall -Wextra -Werror -std=c++98
 LDFLAGS		= $(COMMONFLAGS)
 
-NAME	= ex01
+NAME	= ex02
 INCLUDE	=
 
 
 #sources=======================================================================
 
-SRCS	= main.cpp
+SRCS	= main.cpp \
+		  Bureaucrat.cpp \
+		  AForm.cpp \
+		  ShrubberyCreationForm.cpp \
+		  RobotomyRequestForm.cpp \
+		  PresidentialPardonForm.cpp
 
 OBJS	= $(SRCS:.cpp=.o)
 
 TARGET_OBJS = $(OBJS)
+
+CLEANS	= sample_shrubbery
 
 #rules=========================================================================
 
@@ -35,6 +42,7 @@ $(NAME) : $(TARGET_OBJS)
 .PHONY: clean
 clean :
 	rm -f $(OBJS)
+	rm -f $(CLEANS)
 
 .PHONY: fclean
 fclean :
